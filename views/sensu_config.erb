@@ -1,0 +1,19 @@
+{
+  "rabbitmq": {
+    "host": "rabbit0001.izzell.net",
+    "port": 5671,
+    "vhost": "<%= @account_id %>",
+    "user": "<%= @account_id %>",
+    "password": "<%= @account_password %>",
+    "ssl": true
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "api": {
+    "host": "localhost",
+    "bind": "0.0.0.0",
+    "port": 4567
+  }
+}
