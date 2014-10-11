@@ -30,3 +30,15 @@ get "/sensu_config/v1" do
   send_file file.path, filename: "config.json"
 end
 
+get "/config_consumer/amqp" do
+  send_file "/opt/pair/docker-sensu-server/files/amqp.yml"
+end
+
+get "/config_consumer" do
+  @account_uuid = params["account_uuid"]
+  file = Tempfile.new("account")
+  file.write(erb(:account))
+  file.rewind
+  file.close
+  send_file file.path, filename: "account.yml"
+end
